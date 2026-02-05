@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prize Bond List with Search</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; background-color: #f4f4f4; }
+    h2 { color: #2c3e50; }
+    .section { margin-bottom: 40px; }
+    .bond-list { white-space: pre-wrap; background: #fff; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+    #searchBox { padding: 8px; width: 300px; font-size: 16px; margin-bottom: 20px; }
+    .highlight { background-color: yellow; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <h2>🎯 Search Winning Number</h2>
+  <input type="text" id="searchBox" placeholder="Enter winning number (e.g., 0741080)">
+
+  <div class="section">
+    <h2>Sabita's Prize Bonds (Total: 113)</h2>
+    <div class="bond-list" id="sabitaList">
+0065688, 0069529, 0081763, 0090406, 0090478, 0090834,
+0161291, 0187638, 0195904, 0198606, 0198607, 0198608, 0198609, 0198610, 0198611, 0198612, 0198613, 0198614, 0198615, 0198616, 0198617,
+0243766, 0248090, 0305892, 0369132, 0383014, 0383015, 0383016, 0383092, 0383093, 0383094, 0383539, 0386393,
+0464268, 0464269, 0464270, 0464271, 0464272, 0464273, 0496576,
+0524988, 0530388, 0539488, 0539489, 0539490,
+0547043, 0611858, 0614430,
+0637827, 0637828, 0637829, 0637830,
+0637832, 0637833, 0637834, 0637835, 0637836, 0637837, 0637838, 0637839,
+0637840, 0637841, 0637842, 0637843, 0637844, 0637845, 0637846, 0637847, 0637848, 0637849,
+0639338, 0641844, 0641845, 0689265, 0693286,
+0741040, 0741041, 0741042, 0741043, 0741044, 0741045,
+0741064, 0741070, 0741071, 0741072, 0741073, 0741074, 0741075, 0741076, 0741077, 0741078, 0741079,
+0741080, 0741081, 0741084, 0741087, 0741088, 0741089, 0741090, 0741091, 0741092, 0741093, 0741094, 0741095,
+0741096, 0741097, 0741098, 0741099, 0741100, 0760453,
+0925045, 0925111, 0959215
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Bichitra's Prize Bonds (Total: 50)</h2>
+    <div class="bond-list" id="bichitraList">
+0708231, 0708232, 0708233, 0708234, 0708235, 0708236, 0708237, 0708238, 0708239, 0708240, 
+0708241, 0708242, 0708243, 0708244, 0708245, 0708246, 0708247, 0708248, 0708249, 0708250, 
+0708251, 0708252, 0708253, 0708254, 0708255, 0708256, 0708257, 0708258, 0708259, 0708260, 
+0708261, 0708262, 0708263, 0708264, 0708265, 0708266, 0708267, 0708268, 0708269, 0708270, 
+0708271, 0708272, 0708273, 0708274, 0708275, 0708276, 0708277, 0708278, 0708279, 0708280
+    </div>
+  </div>
+
+  <script>
+    const searchBox = document.getElementById("searchBox");
+    const sabitaList = document.getElementById("sabitaList");
+    const bichitraList = document.getElementById("bichitraList");
+
+    function highlightMatches(listElement, keyword) {
+      const rawText = listElement.textContent;
+      const regex = new RegExp(`\\b(${keyword})\\b`, 'gi');
+      listElement.innerHTML = rawText.replace(regex, '<span class="highlight">$1</span>');
+    }
+
+    searchBox.addEventListener("input", () => {
+      const value = searchBox.value.trim();
+      highlightMatches(sabitaList, value);
+      highlightMatches(bichitraList, value);
+    });
+  </script>
+
+</body>
+</html>
